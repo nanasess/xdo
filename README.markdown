@@ -2,6 +2,8 @@
 
 Java の JDO(Java Data Objects - JSR243) のような O/R Mapper を PHP で実現する.
 
+[![Build Status](https://secure.travis-ci.org/nanasess/xdo.png?branch=master)](http://travis-ci.org/nanasess/xdo)
+
 ## 導入要件
  - TABLE VIEW に対して Model を作成可能なこと
  - 複雑な JOIN に対応可能なこと
