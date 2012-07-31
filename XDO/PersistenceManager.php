@@ -199,7 +199,9 @@ class XDO_PersistenceManager {
                           is_array($id) ? $id : array($id));
         if (empty($result)) {
             return null;
-        } else {
+        } elseif (PEAR::isError($result)) {
+            return null; // FIXME
+        }else {
             $newEntity = new $entity();
             foreach ($result[0] as $key => $val) {
                 $newEntity->setProperty($key, $val);

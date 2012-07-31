@@ -22,6 +22,9 @@ class XDO_ConnectionFactory_MDB2 {
      */
     function executeBySql($sql, $params = array()) {
         $sth = $this->dbh->prepare($sql);
+        if (PEAR::isError($sth)) {
+            return $sth;
+        }
         return $sth->execute(array_values($params));
     }
 
@@ -34,6 +37,9 @@ class XDO_ConnectionFactory_MDB2 {
      */
     function query($sql, $params = array()) {
         $sth = $this->dbh->prepare($sql);
+        if (PEAR::isError($sth)) {
+            return $sth;
+        }
         return $sth->execute($params);
     }
 
@@ -46,6 +52,9 @@ class XDO_ConnectionFactory_MDB2 {
      */
     function getAll($sql, $params = array()) {
         $resultCommon = $this->query($sql, array_values($params));
+        if (PEAR::isError($resultCommon)) {
+            return $resultCommon;
+        }
         return $resultCommon->fetchAll();
     }
 

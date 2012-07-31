@@ -1,5 +1,8 @@
 <?php
 
+// FIXME 暫定措置
+error_reporting(E_ALL);
+
 // {{{ requires
 require_once("XDO/Entity/Abstract.php");
 //require_once("PHPUnit/Framework.php");
@@ -133,10 +136,6 @@ class XDO_Entity_Test extends XDO_Entity_Abstract {
     var $column_one;
     var $column_two;
     var $column_three;
-
-    function XDO_Entity_Test() {
-        $this->__construct();
-    }
 
     function __construct() {
         $this->tableName = "test";

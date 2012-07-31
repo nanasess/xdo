@@ -1,5 +1,9 @@
 <?php
 
+// FIXME 暫定
+error_reporting(E_ALL);
+
+
 // {{{ requires
 require_once("XDO/Helper.php");
 //require_once("PHPUnit/Framework.php");
