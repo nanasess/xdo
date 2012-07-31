@@ -3,7 +3,7 @@
 
 require_once("XDO/Helper.php");
 require_once("XDO/Entity/Abstract.php");
-require_once("PHPUnit/Framework.php");
+//require_once("PHPUnit/Framework.php");
 
 /**
  * XDO_PersistenceManager のテストケース.

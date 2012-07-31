@@ -2,7 +2,7 @@
 
 // {{{ requires
 require_once("XDO/Helper.php");
-require_once("PHPUnit/Framework.php");
+//require_once("PHPUnit/Framework.php");
 
 /**
  * XDO_Helper のテストケース.
