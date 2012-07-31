@@ -20,7 +20,7 @@ class XDO_Helper {
      * @param string $dsn データソース名
      * @return XDO_PersistenceManagerFactory PersistenceManagerFactoryインスタンス
      */
-    function getPersistenceManagerFactory($dsn, $backend) {
+    static function getPersistenceManagerFactory($dsn, $backend) {
         return new XDO_PersistenceManagerFactory($dsn, $backend);
     }
 }

@@ -20,15 +20,15 @@ class XDO_PresistenceManagerTest extends PHPUnit_Framework_TestCase {
     var $tx;
 
     function setUp() {
-        $this->pmf = XDO_Helper::getPersistenceManagerFactory('pgsql://nanasess:pass@localhost/xdo_test', XDO_BACKEND_MDB2);
+        $this->pmf = XDO_Helper::getPersistenceManagerFactory('pgsql://postgres:pass@localhost/xdo_test', XDO_BACKEND_MDB2);
         $pm = $this->pmf->getPersistenceManager();
         $this->tx = $pm->currentTransaction();
         $this->tx->begin();
-        $this->entity = new XDO_Entity_Test();
+        $this->entity = new XDO_Entity_Test2();
     }
 
     function tearDown() {
-        $this->tx->rollback();
+        // $this->tx->rollback();
     }
 
     function verify() {
@@ -106,7 +106,7 @@ class XDO_PresistenceManagerTest extends PHPUnit_Framework_TestCase {
         $pm = $this->pmf->getPersistenceManager();
 
         $this->expected = $this->entity;
-        $this->actual = $pm->getObjectById(new XDO_Entity_Test(), 1);
+        $this->actual = $pm->getObjectById(new XDO_Entity_Test2(), 1);
 
         $this->verify();
     }
@@ -118,7 +118,7 @@ class XDO_PresistenceManagerTest extends PHPUnit_Framework_TestCase {
 
         $pm = $this->pmf->getPersistenceManager();
 
-        $entities = array(new XDO_Entity_Test(), new XDO_Entity_Test());
+        $entities = array(new XDO_Entity_Test2(), new XDO_Entity_Test2());
         $entities[0]->id = 1;
         $entities[0]->column1 = 1;
         $entities[0]->column2 = 1;
@@ -128,7 +128,7 @@ class XDO_PresistenceManagerTest extends PHPUnit_Framework_TestCase {
         $entities[1]->column2 = 1;
         $entities[1]->column3 = "f";
 
-        $results = $pm->getObjectsByParam(new XDO_Entity_Test(),
+        $results = $pm->getObjectsByParam(new XDO_Entity_Test2(),
                                           array("column2" => 1));
 
 
@@ -192,14 +192,14 @@ class XDO_PresistenceManagerTest extends PHPUnit_Framework_TestCase {
     }
 }
 
-class XDO_Entity_Test extends XDO_Entity_Abstract {
+class XDO_Entity_Test2 extends XDO_Entity_Abstract {
 
     var $id;
     var $column1;
     var $column2;
     var $column3;
 
-    function XDO_Entity_Test() {
+    function XDO_Entity_Test2() {
         $this->__construct();
     }
 

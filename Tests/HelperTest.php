@@ -26,7 +26,7 @@ class XDO_HelperTest extends PHPUnit_Framework_TestCase {
     }
 
     function testGetPersistenceManagerFactory() {
-        $pmf = XDO_Helper::getPersistenceManagerFactory('pgsql://nanasess:pass@localhost/xdo_test');
+        $pmf = XDO_Helper::getPersistenceManagerFactory('pgsql://postgres:pass@localhost/xdo_test', XDO_BACKEND_MDB2);
  
         $this->expected = true;
         $this->actual = is_object($pmf);
@@ -36,7 +36,7 @@ class XDO_HelperTest extends PHPUnit_Framework_TestCase {
 
     function testGetPersistenceManager() {
 
-        $pmf = XDO_Helper::getPersistenceManagerFactory('pgsql://nanasess:pass@localhost/xdo_test');
+        $pmf = XDO_Helper::getPersistenceManagerFactory('pgsql://postgres:pass@localhost/xdo_test', XDO_BACKEND_MDB2);
         $pm = $pmf->getPersistenceManager();
         $this->expected = true;
         $this->actual = is_object($pm);
